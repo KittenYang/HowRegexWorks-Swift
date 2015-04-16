@@ -20,9 +20,9 @@ class SearchViewController: UIViewController {
     
     @IBOutlet weak var textView: UITextView!
 
-    //*******************************************
-    //** 第四步：从过滤条件页面返回触发unwind segue **
-    //*******************************************
+    //**********************************************
+    //** 第A:4/6步：从过滤条件页面返回触发unwind segue **
+    //**********************************************
     @IBAction func unwindToTextHighlightViewController(segue: UIStoryboardSegue) {
         if let searchOptionsViewController = segue.sourceViewController as? SearchOptionsViewController {
             
@@ -35,9 +35,9 @@ class SearchViewController: UIViewController {
         }
     }
     
-    //*******************************************
-    //*** 第一步：点击search弹出设置过滤条件的页面 ****
-    //*******************************************
+    //**********************************************
+    //*** 第A:1/6步：点击search弹出设置过滤条件的页面 ***
+    //**********************************************
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if (segue.identifier == Storyboard.Identifiers.SearchOptionsSegueIdentifier) {
             if let options = self.searchOptions {
@@ -52,7 +52,7 @@ class SearchViewController: UIViewController {
     
     
     //*******************************************
-    //******** 第五步：替换或者高亮的核心代码 ********
+    //******** 第A:5/6步：替换或者高亮的核心代码 ********
     //*******************************************
     func performSearchWithOptions(searchOptions: SearchOptions) {
         self.searchOptions = searchOptions
@@ -65,9 +65,9 @@ class SearchViewController: UIViewController {
         }
     }
     
-    //*******************************************
-    //********* 第六(1)步：替换字符的核心代码 *******
-    //*******************************************
+    //**********************************************
+    //********* 第A:6(1)/6步：替换字符的核心代码 *******
+    //**********************************************
     func searchForText(searchText: String, replaceWith replacementText: String, inTextView textView: UITextView) {
         let beforeText = textView.text
         let range = NSMakeRange(0, count(beforeText))
@@ -84,9 +84,9 @@ class SearchViewController: UIViewController {
         
     }
     
-    //*******************************************
-    //********* 第六(2)步：高亮字符的核心代码 *******
-    //*******************************************
+    //**********************************************
+    //********* 第A:6(2)/6步：高亮字符的核心代码 *******
+    //**********************************************
     func highlightText(searchText: String, inTextView textView: UITextView) {
 
         //可变拷贝一份textView的attributedText
