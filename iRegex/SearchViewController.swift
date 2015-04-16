@@ -77,7 +77,8 @@ class SearchViewController: UIViewController {
         //*********************************************************        
         if let regex = NSRegularExpression(options: self.searchOptions!){
 
-            let afterText = regex.stringByReplacingMatchesInString(beforeText, options: NSMatchingOptions.allZeros, range: range, withTemplate: replacementText) //regex就是正则表达式，范围是整个文本，在整个文本里面去匹配"正则表达式"
+            //regex就是正则表达式，范围是整个文本，在整个文本里面用"正则表达式"匹配
+            let afterText = regex.stringByReplacingMatchesInString(beforeText, options: NSMatchingOptions.allZeros, range: range, withTemplate: replacementText)
             textView.text  = afterText
         }
         
@@ -87,10 +88,10 @@ class SearchViewController: UIViewController {
     //********* 第六(2)步：高亮字符的核心代码 *******
     //*******************************************
     func highlightText(searchText: String, inTextView textView: UITextView) {
-        //1
+        //
         let attributedText = textView.attributedText.mutableCopy() as! NSMutableAttributedString
         
-        //2
+        //
         let attributedTextRange = NSMakeRange(0, attributedText.length)
         attributedText.removeAttribute(NSBackgroundColorAttributeName, range: attributedTextRange)
 
@@ -99,10 +100,11 @@ class SearchViewController: UIViewController {
         //*********************************************************
         if let regex = NSRegularExpression(options: self.searchOptions!) {
             let range = NSMakeRange(0, count(textView.text))
+
+            //这个方法返回一个数组，数组里面是匹配得到的结果。每个结果是AnyObject类型的。所以我们需要转成NSTextCheckingResult这个类型。这个类型中有一个变量可以获取当前结果在全文中的range。
             let matches = regex.matchesInString(textView.text, options: .allZeros, range: range)
-            //上面这个方法返回一个数组，数组里面是匹配得到的结果。每个结果是AnyObject类型的。所以我们需要转成NSTextCheckingResult这个类型。这个类型中有一个变量可以获取当前结果在全文中的range。
             
-            // 4 ————  轮询每一个匹配项（把它们转换成NSTextCheckingResult对象），并为每一项添加黄色背景。
+            //遍历每一个匹配项（把它们转换成NSTextCheckingResult对象），并为每一项添加黄色背景。
             for match in matches as! [NSTextCheckingResult] {
                 let matchRange = match.range //这个range是全文中的range
                 
