@@ -25,8 +25,11 @@ class SearchViewController: UIViewController {
     //*******************************************
     @IBAction func unwindToTextHighlightViewController(segue: UIStoryboardSegue) {
         if let searchOptionsViewController = segue.sourceViewController as? SearchOptionsViewController {
-            //如果是点击cancel，searchOptionsViewController.searchOptions被设置成了nil，所以不会进入下面这个方法；如果是search，searchOptionsViewController.searchOptions不为空，所以会进入下面这个方法。本来这里有个疑问？既然都返回了，searchOptionsViewController.searchOptions应该已经release掉了才对啊，结果在这里打了个断点发现，这个方法执行时，屏幕依然是显示searchOptionsViewController的，也就是说还没真正返回，所以下面let options = searchOptionsViewController.searchOptions就是赶紧用一个常量保存searchOptions。
+            
+            //如果是点击cancel，searchOptionsViewController.searchOptions被设置成了nil，所以不会进入下面这个方法；如果是search，searchOptionsViewController.searchOptions不为空，所以会进入下面这个方法。
+            //本来这里有个疑问？既然都返回了，searchOptionsViewController.searchOptions应该已经release掉了才对啊，结果在这里打了个断点发现，这个方法执行时，屏幕依然是显示searchOptionsViewController的，也就是说还没真正返回，所以下面let options = searchOptionsViewController.searchOptions就是赶紧用一个常量保存searchOptions。
             if let options = searchOptionsViewController.searchOptions {
+                //进入正式查找的方法
                 performSearchWithOptions(options)
             }
         }
@@ -47,11 +50,15 @@ class SearchViewController: UIViewController {
         }
     }
     
-    //MARK: Text highlighting, and Find and Replace
+    
+    //*******************************************
+    //******** 第五步：替换或者高亮的核心代码 ********
+    //*******************************************
 
     func performSearchWithOptions(searchOptions: SearchOptions) {
         self.searchOptions = searchOptions
         
+        //
         if let replacementString = searchOptions.replacementString {
             searchForText(searchOptions.searchString, replaceWith: replacementString, inTextView: textView)
         } else {
