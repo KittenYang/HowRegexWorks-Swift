@@ -72,6 +72,9 @@ class SearchViewController: UIViewController {
         let beforeText = textView.text
         let range = NSMakeRange(0, count(beforeText))
         
+        //*********************************************************
+        //********* 在第六步中：调用"RegexHelpers"生成正则表达式 *******
+        //*********************************************************        
         if let regex = NSRegularExpression(options: self.searchOptions!){
 
             let afterText = regex.stringByReplacingMatchesInString(beforeText, options: NSMatchingOptions.allZeros, range: range, withTemplate: replacementText) //regex就是正则表达式，范围是整个文本，在整个文本里面去匹配"正则表达式"
@@ -91,7 +94,9 @@ class SearchViewController: UIViewController {
         let attributedTextRange = NSMakeRange(0, attributedText.length)
         attributedText.removeAttribute(NSBackgroundColorAttributeName, range: attributedTextRange)
 
-        //3
+        //*********************************************************
+        //********* 在第六步中：调用"RegexHelpers"生成正则表达式 *******
+        //*********************************************************
         if let regex = NSRegularExpression(options: self.searchOptions!) {
             let range = NSMakeRange(0, count(textView.text))
             let matches = regex.matchesInString(textView.text, options: .allZeros, range: range)
