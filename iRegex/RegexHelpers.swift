@@ -8,6 +8,7 @@
 
 import Foundation
 
+//这个扩展是用来生成一个正则表达式的，因为正则表达式需要根据过滤条件不同而不同，所以我们需要传入过滤条件SearchOptions
 extension NSRegularExpression {
     convenience init?(options:SearchOptions){
         let searchString = options.searchString
