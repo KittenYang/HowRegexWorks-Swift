@@ -19,7 +19,10 @@ class SearchViewController: UIViewController {
     var searchOptions: SearchOptions?
     
     @IBOutlet weak var textView: UITextView!
-    
+
+    //*******************************************
+    //** 第四步：从过滤条件页面返回触发unwind segue **
+    //*******************************************
     @IBAction func unwindToTextHighlightViewController(segue: UIStoryboardSegue) {
         if let searchOptionsViewController = segue.sourceViewController as? SearchOptionsViewController {
             if let options = searchOptionsViewController.searchOptions {
