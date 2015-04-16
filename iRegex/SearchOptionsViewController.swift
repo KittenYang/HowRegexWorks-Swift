@@ -31,9 +31,9 @@ class SearchOptionsViewController: UITableViewController {
         }
     }
     
-    //*******************************************
-    //******** 第二步：viewWillAppear ************
-    //*******************************************
+    //**********************************************
+    //******** 第A:2/6步：viewWillAppear ************
+    //**********************************************
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
@@ -55,9 +55,9 @@ class SearchOptionsViewController: UITableViewController {
         performSegueWithIdentifier(Storyboard.Identifiers.UnwindSegueIdentifier, sender: self)
     }
     
-    //*******************************************
-    //***********  第三步：点击Search  ************
-    //*******************************************
+    //**********************************************
+    //***********  第A:3/6步：点击Search  ************
+    //**********************************************
     @IBAction func searchTapped(sender: AnyObject) {
 
         //这时结构体的默认初始化方法，很方便设置其内部的全部变量
