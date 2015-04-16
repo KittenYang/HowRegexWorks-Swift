@@ -77,7 +77,7 @@ class SearchViewController: UIViewController {
         //*********************************************************        
         if let regex = NSRegularExpression(options: self.searchOptions!){
 
-            //regex就是正则表达式，范围是整个文本，在整个文本里面用"正则表达式"匹配
+            //regex就是正则表达式，范围是整个文本，在整个文本里面用"正则表达式"去匹配，返回一个替换之后的文本，再把替换之后的文本重新赋值给textView
             let afterText = regex.stringByReplacingMatchesInString(beforeText, options: NSMatchingOptions.allZeros, range: range, withTemplate: replacementText)
             textView.text  = afterText
         }
@@ -88,10 +88,11 @@ class SearchViewController: UIViewController {
     //********* 第六(2)步：高亮字符的核心代码 *******
     //*******************************************
     func highlightText(searchText: String, inTextView textView: UITextView) {
-        //
+
+        //可变拷贝一份textView的attributedText
         let attributedText = textView.attributedText.mutableCopy() as! NSMutableAttributedString
         
-        //
+        //范围还是全文，并把原来上一次的高亮都移除
         let attributedTextRange = NSMakeRange(0, attributedText.length)
         attributedText.removeAttribute(NSBackgroundColorAttributeName, range: attributedTextRange)
 

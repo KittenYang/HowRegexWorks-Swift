@@ -20,7 +20,7 @@ extension NSRegularExpression {
         let isCaseSensitive = options.matchCase
         let isWholeWords = options.wholeWords
         
-        //区分大小写设置NSRegularExpressionOptions为allZeros；不区分大小写设置NSRegularExpressionOptions为CaseInsensitive
+        //区分大小写设置NSRegularExpressionOptions为allZeros(默认，默认区分大小写)；不区分大小写设置NSRegularExpressionOptions为CaseInsensitive
         let regexOption: NSRegularExpressionOptions = (isCaseSensitive) ? .allZeros : .CaseInsensitive
         
         //匹配整个字符，正则表达为“\bXXX\b”,但在代码中需要转义第一个斜杠，所以应该是"\\bXXX\\b"；包含这个单词即可，正则表达式就直接是"XXX"
