@@ -54,11 +54,10 @@ class SearchViewController: UIViewController {
     //*******************************************
     //******** 第五步：替换或者高亮的核心代码 ********
     //*******************************************
-
     func performSearchWithOptions(searchOptions: SearchOptions) {
         self.searchOptions = searchOptions
         
-        //
+        //如果需要替换，进入searchForText方法；如果不需要替换，进入highlightText方法
         if let replacementString = searchOptions.replacementString {
             searchForText(searchOptions.searchString, replaceWith: replacementString, inTextView: textView)
         } else {
@@ -66,6 +65,9 @@ class SearchViewController: UIViewController {
         }
     }
     
+    //*******************************************
+    //********* 第六(1)步：替换字符的核心代码 *******
+    //*******************************************
     func searchForText(searchText: String, replaceWith replacementText: String, inTextView textView: UITextView) {
         let beforeText = textView.text
         let range = NSMakeRange(0, count(beforeText))
@@ -78,6 +80,9 @@ class SearchViewController: UIViewController {
         
     }
     
+    //*******************************************
+    //********* 第六(2)步：高亮字符的核心代码 *******
+    //*******************************************
     func highlightText(searchText: String, inTextView textView: UITextView) {
         //1
         let attributedText = textView.attributedText.mutableCopy() as! NSMutableAttributedString
