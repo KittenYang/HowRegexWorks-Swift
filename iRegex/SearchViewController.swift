@@ -109,11 +109,11 @@ class SearchViewController: UIViewController {
             //遍历每一个匹配项（把它们转换成NSTextCheckingResult对象），并为每一项添加黄色背景。
             for match in matches as! [NSTextCheckingResult] {
                 let matchRange = match.range //这个range是全文中的range
-                
+                //每一个match都设置背景色
                 attributedText.addAttribute(NSBackgroundColorAttributeName, value: UIColor.yellowColor(), range: matchRange)
             }
         }
-        // 5
+        
         textView.attributedText = attributedText.copy() as! NSAttributedString
     }
     
