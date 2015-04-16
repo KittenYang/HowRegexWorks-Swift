@@ -58,7 +58,6 @@ class SearchOptionsViewController: UITableViewController {
     //*******************************************
     //***********  第三步：点击Search  ************
     //*******************************************
-
     @IBAction func searchTapped(sender: AnyObject) {
 
         //这时结构体的默认初始化方法，很方便设置其内部的全部变量
