@@ -92,7 +92,7 @@ class SearchViewController: UIViewController {
         //可变拷贝一份textView的attributedText
         let attributedText = textView.attributedText.mutableCopy() as! NSMutableAttributedString
         
-        //范围还是全文，并把原来上一次的高亮都移除
+        //范围还是全文，并把原来上一次的高亮都移除，计算NSMutableAttributedString的长度可以用attributedText.length
         let attributedTextRange = NSMakeRange(0, attributedText.length)
         attributedText.removeAttribute(NSBackgroundColorAttributeName, range: attributedTextRange)
 
@@ -100,6 +100,7 @@ class SearchViewController: UIViewController {
         //********* 在第六步中：调用"RegexHelpers"生成正则表达式 *******
         //*********************************************************
         if let regex = NSRegularExpression(options: self.searchOptions!) {
+            //计算textView.text的长度要用 count(textView.text)
             let range = NSMakeRange(0, count(textView.text))
 
             //这个方法返回一个数组，数组里面是匹配得到的结果。每个结果是AnyObject类型的。所以我们需要转成NSTextCheckingResult这个类型。这个类型中有一个变量可以获取当前结果在全文中的range。
