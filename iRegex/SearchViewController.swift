@@ -168,4 +168,8 @@ class SearchViewController: UIViewController {
         
         textView.attributedText = attributedText.copy() as! NSAttributedString
     }
+    
+    func addTapGes(attriText:NSMutableAttributedString!){
+        
+    }
 }
