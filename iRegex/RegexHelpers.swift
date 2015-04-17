@@ -37,13 +37,13 @@ extension NSRegularExpression {
     }
 
     class func regularExpressionForTimes() -> NSRegularExpression? {
-        let pattern = "\\d{1,2}\\s*(pm|am)"
+        let pattern = "(1[0-2]|0?[1-9]):([0-5][0-9]\\s?(am|pm))"
         return NSRegularExpression(pattern: pattern, options: NSRegularExpressionOptions.CaseInsensitive, error: nil)
     }
 
     class func regularExpressionForLocations() -> NSRegularExpression? {
         let pattern = "[a-zA-Z]+[,]\\s*([A-Z]{2})"
-        return NSRegularExpression(pattern: pattern, options: NSRegularExpressionOptions.CaseInsensitive, error: nil)
+        return NSRegularExpression(pattern: pattern, options: NSRegularExpressionOptions.allZeros, error: nil)
     }
 
     
