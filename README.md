@@ -143,3 +143,18 @@ struct SearchOptions {
 ```
 
 
+###--B功能：**实现数据验证，验证比如输入的是否是电话号码或者邮件**
+
+####首先，请先自行自考下面的正则表达式是什么？
+
+**First name:**应该包含一到十个字符长度的标准英语字母
+
+**Middle initial：**应该包含一个英语字母。
+
+**Last name：**应该包含标准英语字母加上撇号‘（apostrophe）（如这样的名字 O’Brian） 并且二到十个字符长度。
+
+**Date of birth：** dd/mm/yyyy, dd-mm-yyyy, 或 dd.mm.yyyy, 且要落在 1/1/1900 和 31/12/2099之间。
+
+
+*答案*
+
