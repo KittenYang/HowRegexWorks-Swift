@@ -30,18 +30,19 @@ extension NSRegularExpression {
         self.init(pattern: pattern, options: regexOption, error: nil)
     }
     
+    //xx/xx/xx or xx.xx.xx or xx-xx-xx
     class func regularExpressionForDates() -> NSRegularExpression? {
-        let pattern = " "
+        let pattern = "(\\d{1,2}[-/.]\\d{1,2}[-/.]\\d{1,2})|(Jan(uary)?|Feb(ruary)?|Mar(ch)?|Apr(il)?|May|Jun(e)?|Jul(y)?|Aug(ust)?|Sep(tember)?|Oct(ober)?|Nov(ember)?|Dec(ember)?)\\s*(\\d{1,2}(st|nd|rd|th)?+)?[,]\\s*\\d{4}"
         return NSRegularExpression(pattern: pattern, options: NSRegularExpressionOptions.CaseInsensitive, error: nil)
     }
 
     class func regularExpressionForTimes() -> NSRegularExpression? {
-        let pattern = " "
+        let pattern = "\\d{1,2}\\s*(pm|am)"
         return NSRegularExpression(pattern: pattern, options: NSRegularExpressionOptions.CaseInsensitive, error: nil)
     }
 
     class func regularExpressionForLocations() -> NSRegularExpression? {
-        let pattern = " "
+        let pattern = "[a-zA-Z]+[,]\\s*([A-Z]{2})"
         return NSRegularExpression(pattern: pattern, options: NSRegularExpressionOptions.CaseInsensitive, error: nil)
     }
 
