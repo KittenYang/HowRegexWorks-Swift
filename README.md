@@ -156,5 +156,14 @@ struct SearchOptions {
 **Date of birth：** dd/mm/yyyy, dd-mm-yyyy, 或 dd.mm.yyyy, 且要落在 1/1/1900 和 31/12/2099之间。
 
 
-*答案*
+*答案：*
+  "^[a-z]{1,10}$",    // First name
+ 
+  "^[a-z]$",          // Middle Initial
+  
+  "^[a-z']{2,10}$",   // Last Name
+  
+  "^(0[1-9]|1[012])[-/.](0[1-9]|[12][0-9]|3[01])[-/.](19|20)\\d\\d$"  // Date of Birth
+
+
 
