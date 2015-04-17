@@ -29,4 +29,24 @@ extension NSRegularExpression {
         //调用原生的初始化方法，传入上面的正则表达式以及option
         self.init(pattern: pattern, options: regexOption, error: nil)
     }
+    
+    class func regularExpressionForDates() -> NSRegularExpression? {
+        let pattern = " "
+        return NSRegularExpression(pattern: pattern, options: NSRegularExpressionOptions.CaseInsensitive, error: nil)
+    }
+
+    class func regularExpressionForTimes() -> NSRegularExpression? {
+        let pattern = " "
+        return NSRegularExpression(pattern: pattern, options: NSRegularExpressionOptions.CaseInsensitive, error: nil)
+    }
+
+    class func regularExpressionForLocations() -> NSRegularExpression? {
+        let pattern = " "
+        return NSRegularExpression(pattern: pattern, options: NSRegularExpressionOptions.CaseInsensitive, error: nil)
+    }
+
+    
 }
+
+
+

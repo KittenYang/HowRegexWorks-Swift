@@ -129,12 +129,24 @@ class SearchViewController: UIViewController {
     }
 
     func underlineAllDates() {
+        if let regex = NSRegularExpression.regularExpressionForDates(){
+            let matches = matchesForRegularExpression(regex, inTextView: textView)
+            highlightMatches(matches)
+        }
     }
     
     func underlineAllTimes() {
+        if let regex = NSRegularExpression.regularExpressionForTimes(){
+            let matches = matchesForRegularExpression(regex, inTextView: textView)
+            highlightMatches(matches)
+        }
     }
     
     func underlineAllLocations() {
+        if let regex = NSRegularExpression.regularExpressionForLocations(){
+            let matches = matchesForRegularExpression(regex, inTextView: textView)
+            highlightMatches(matches)
+        }
     }
     
     func matchesForRegularExpression(regex: NSRegularExpression, inTextView textView: UITextView) -> [NSTextCheckingResult] {
