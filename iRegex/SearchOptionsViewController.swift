@@ -60,7 +60,7 @@ class SearchOptionsViewController: UITableViewController {
     //**********************************************
     @IBAction func searchTapped(sender: AnyObject) {
 
-        //这时结构体的默认初始化方法，很方便设置其内部的全部变量
+        //这是结构体的默认初始化方法，很方便设置其内部的全部变量
         searchOptions = SearchOptions(searchString: searchTextField.text,
                                       replacementString: (replaceTextSwitch.on) ? replacementTextField.text : nil,
                                       matchCase: matchCaseSwitch.on,

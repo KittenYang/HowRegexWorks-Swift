@@ -1,5 +1,13 @@
 import UIKit
 
+var arr = [10,10,10,123,11,34]
+let aaa = arr.map({$0 + 10})
+let bbb = arr.filter({$0 % 2 == 0})
+
+bbb
+aaa
+
+
 func highlightMatches(pattern: String, inString string: String) -> NSAttributedString {
     let regex = NSRegularExpression(pattern: pattern, options: .allZeros, error: nil)
     let range = NSMakeRange(0, count(string))

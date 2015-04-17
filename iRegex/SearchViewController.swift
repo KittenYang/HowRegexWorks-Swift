@@ -52,7 +52,7 @@ class SearchViewController: UIViewController {
     
     
     //*******************************************
-    //******** 第A:5/6步：替换或者高亮的核心代码 ********
+    //******** 第A:5/6步：替换或者高亮的核心代码 *****
     //*******************************************
     func performSearchWithOptions(searchOptions: SearchOptions) {
         self.searchOptions = searchOptions
@@ -81,7 +81,6 @@ class SearchViewController: UIViewController {
             let afterText = regex.stringByReplacingMatchesInString(beforeText, options: NSMatchingOptions.allZeros, range: range, withTemplate: replacementText)
             textView.text  = afterText
         }
-        
     }
     
     //**********************************************

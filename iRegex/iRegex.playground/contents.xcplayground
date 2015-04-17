@@ -42,4 +42,5 @@
         <documentation relative-path='section-38.html'/>
         <code source-file-name='section-40.swift'/>
     </sections>
+    <timeline fileName='timeline.xctimeline'/>
 </playground>
