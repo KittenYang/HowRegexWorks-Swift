@@ -120,8 +120,7 @@ class SearchViewController: UIViewController {
         return NSMakeRange(0, count(textView.text))
     }
 
-    //MARK: Underline dates, times, and locations
-    
+    //给日期、时间、位置加上蓝色字体和下划线
     @IBAction func underlineInterestingData(sender: AnyObject) {
         underlineAllDates()
         underlineAllTimes()
